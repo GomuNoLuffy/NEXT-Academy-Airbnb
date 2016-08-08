@@ -1,0 +1,22 @@
+<h1>All your bookings here</h1>
+
+<table class="table">
+	<tr>
+		<th>Listing ID</th>
+		<th>Listing Info</th>
+		<th>Number of Guest</th>
+		<th>Start Date</th>
+		<th>End Date</th>
+		<th>Delete Booking</th>
+	</tr>
+		<% @bookings.each do |booking| %>
+	<tr>
+		<td><%= booking.listing_id %></td>
+		<td><%= link_to "#{booking.listing.title}", listing_path(booking.listing_id) %></td>
+		<td><%= booking.num_guest %></td>
+		<td><%= booking.start_date %></td>
+		<td><%= booking.end_date %></td>
+		<td><%= link_to 'Delete', booking, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+	</tr>	
+	<% end %>
+</table>

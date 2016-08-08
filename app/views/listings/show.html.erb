@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @listing.title %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @listing.address %>
+</p>
+
+<p>
+	<strong>Tags:</strong>
+	<% @listing.tags.each do |tag| %>
+		<%= tag.content + ", " %>
+	<% end %>
+</p>
+
+<p>
+	<strong>Pictures</strong><br>
+	<% if @listing.pictures? %>
+		<% @listing.pictures.each do |picture| %>
+			<%= image_tag(picture) %>
+		<% end %>
+	<% end %>	
+</p>
+
+<%= link_to 'Back', listings_path %> |
+<%= link_to 'Book', new_listing_booking_path(@listing) %>
