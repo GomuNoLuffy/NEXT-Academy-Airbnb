@@ -12,8 +12,10 @@ class BookingsController < ApplicationController
 	def create
 		@booking = current_user.bookings.new(booking_params)
 		@booking.listing = @listing
-
+		@customer = current_user
+		
 		if @booking.save
+			BookingMailer.booking_email(@customer, @booking, @listing).deliver_now
 			date_range = convert_date(@booking.start_date, @booking.end_date)
 			date_range.each do |date|
 				AvailableDate.create(listing_id: @listing.id, date: date, availability: false)
