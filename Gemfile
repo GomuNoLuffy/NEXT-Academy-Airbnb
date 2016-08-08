@@ -8,6 +8,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'sidekiq'
 
 # add clearance gem for user management
 gem 'clearance'
