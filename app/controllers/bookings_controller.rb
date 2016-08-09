@@ -28,7 +28,6 @@ class BookingsController < ApplicationController
 	end
 
 	def destroy
-
 		@booking = Booking.find(params[:id])
 		date_range = convert_date(@booking.start_date, @booking.end_date)
 		date_range.each do |date|
