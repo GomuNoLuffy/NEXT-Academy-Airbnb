@@ -15,8 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
-<<<<<<< HEAD
 //= require filterrific/filterrific-jquery
-//= require bootstrap-datepicker
-=======
->>>>>>> master
