@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
 		@customer = current_user
 		
 		if @booking.save
-			BookingMailer.booking_email(@customer, @booking, @listing).deliver_now
+			BookingMailerJob.perform_later(@customer, @booking, @listing)
 			date_range = convert_date(@booking.start_date, @booking.end_date)
 			date_range.each do |date|
 				AvailableDate.create(listing_id: @listing.id, date: date, availability: false)
@@ -28,7 +28,12 @@ class BookingsController < ApplicationController
 	end
 
 	def destroy
+
 		@booking = Booking.find(params[:id])
+		date_range = convert_date(@booking.start_date, @booking.end_date)
+		date_range.each do |date|
+			AvailableDate.find_by(listing_id: @booking.listing_id, date: date).destroy
+		end
 		@booking.destroy
 		redirect_to bookings_path
 	end
