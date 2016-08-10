@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
 			date_range.each do |date|
 				AvailableDate.create(listing_id: @listing.id, date: date, availability: false)
 			end
-			redirect_to bookings_path
+			redirect_to new_booking_payment_path(@booking.id)
 		else
 			@errors = @booking.errors.full_messages
 			render :new 
