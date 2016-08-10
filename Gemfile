@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'braintree'
 
 gem 'bootstrap-datepicker-rails'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
