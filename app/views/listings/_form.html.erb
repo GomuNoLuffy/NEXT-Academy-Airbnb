@@ -20,7 +20,17 @@
     <%= f.number_field :price %><br>
     <%= f.label :Tag %><br>
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :content %><br>
-    <%= f. file_field :pictures, multiple: true %><br>
+    <%= f.file_field :pictures, multiple: true %><br>
+    <p>
+    <strong>Pictures</strong><br>
+    <% if @listing.pictures? %>
+      <% @listing.pictures.each do |picture| %>
+        <%= image_tag(picture) %>
+      <% end %>
+    <% end %> 
+    </p>
+    <%= f.check_box :remove_pictures %>
+    Remove Pictures<br>
   	<%= f.submit %>
   </div>
 <% end %>  	

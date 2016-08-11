@@ -7,7 +7,6 @@ gem 'braintree'
 gem 'gon'
 gem 'searchkick'
 
-gem 'bootstrap-datepicker-rails'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
