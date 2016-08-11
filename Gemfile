@@ -12,6 +12,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'sidekiq'
+gem 'puma'
 
 # add clearance gem for user management
 gem 'clearance'
@@ -59,5 +60,15 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+	gem 'capybara'
+	gem 'database_cleaner'
+end
+
+group :production do
+	gem 'skylight'
+	gem 'rails_12factor'
 end
 
