@@ -12,15 +12,13 @@ class BookingsController < ApplicationController
 	def create
 		@booking = current_user.bookings.new(booking_params)
 		@booking.listing = @listing
-		@customer = current_user
-		
 		if @booking.save
-			BookingMailerJob.perform_later(@customer, @booking, @listing)
 			date_range = convert_date(@booking.start_date, @booking.end_date)
 			date_range.each do |date|
 				AvailableDate.create(listing_id: @listing.id, date: date, availability: false)
 			end
-			redirect_to bookings_path
+			DeleteBookingJob.set(wait: 1.minutes).perform_later(@booking)
+			redirect_to new_booking_payment_path(@booking.id)
 		else
 			@errors = @booking.errors.full_messages
 			render :new 

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   has_many :listings
   has_many :bookings
+  has_many :payments
   attr_accessor :image
   mount_uploader :image, ImageUploader
 

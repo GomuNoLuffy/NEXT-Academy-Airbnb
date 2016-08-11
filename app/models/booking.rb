@@ -1,6 +1,7 @@
 class Booking < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :listing
+	belongs_to :payments
 	validate :check_overlapping_bookings
 	validate :validate_date # prevent booking date before today
 
