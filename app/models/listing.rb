@@ -1,5 +1,7 @@
 class Listing < ActiveRecord::Base
-	belongs_to :user
+	searchkick
+  
+  belongs_to :user
 	has_many :listing_tags
 	has_many :tags, through: :listing_tags
   has_many :bookings
@@ -49,5 +51,13 @@ class Listing < ActiveRecord::Base
       ['Price (High - Low)', 'price_desc'],
       ['Price (Low - High)', 'price_asc']
     ]
+  end
+
+  def search_data
+    {
+      title: title,
+      address: address,
+      price: price
+    }
   end
 end

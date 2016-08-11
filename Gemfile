@@ -5,6 +5,7 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'braintree'
 gem 'gon'
+gem 'searchkick'
 
 gem 'bootstrap-datepicker-rails'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
