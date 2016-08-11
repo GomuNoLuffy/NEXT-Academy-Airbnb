@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 			date_range.each do |date|
 				AvailableDate.create(listing_id: @listing.id, date: date, availability: false)
 			end
-			DeleteBookingJob.set(wait: 1.minutes).perform_later(@booking)
+			DeleteBookingJob.set(wait: 10.minutes).perform_later(@booking)
 			redirect_to new_booking_payment_path(@booking.id)
 		else
 			@errors = @booking.errors.full_messages
