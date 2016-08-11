@@ -2,6 +2,7 @@ class ListingsController < ApplicationController
 	before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
 	def index
+		
 		@filterrific = initialize_filterrific(
       Listing,
       params[:filterrific],
@@ -10,8 +11,12 @@ class ListingsController < ApplicationController
       }
     ) or return
 
-    @listings = @filterrific.find
-    
+    if params[:search_result] == "all"
+    	@listings = @filterrific.find
+    else
+    	@listings = Listing.search params[:search_result]
+    end
+
     respond_to do |format|
       format.html
       format.js
