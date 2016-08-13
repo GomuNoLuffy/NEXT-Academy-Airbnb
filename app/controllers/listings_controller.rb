@@ -2,25 +2,10 @@ class ListingsController < ApplicationController
 	before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
 	def index
-		
-		@filterrific = initialize_filterrific(
-      Listing,
-      params[:filterrific],
-      select_options: {
-        sorted_by: Listing.options_for_sorted_by
-      }
-    ) or return
-
     if params[:search_result] == "all"
-    	@listings = @filterrific.find
+    	@listings = Listing.all
     else
     	@listings = Listing.search params[:search_result]
-    end
-   
-
-    respond_to do |format|
-      format.html
-      format.js
     end
 	end
 
