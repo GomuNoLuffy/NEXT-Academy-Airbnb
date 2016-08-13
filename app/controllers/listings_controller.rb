@@ -16,6 +16,7 @@ class ListingsController < ApplicationController
     else
     	@listings = Listing.search params[:search_result]
     end
+   
 
     respond_to do |format|
       format.html

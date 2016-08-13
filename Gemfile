@@ -51,6 +51,7 @@ gem 'filterrific'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
 end
 
 group :development do
@@ -64,6 +65,13 @@ end
 group :test do
 	gem 'capybara'
 	gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers'
 end
 
 group :production do
