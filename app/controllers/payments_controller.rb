@@ -7,13 +7,13 @@ class PaymentsController < ApplicationController
 	end
 
 	def create
-    @result = Braintree::Transaction.sale(
+    result = Braintree::Transaction.sale(
               amount: total_price,
               payment_method_nonce: params[:payment_method_nonce])
-    if @result.success?
+    if result.success?
     	BookingMailerJob.perform_later(current_user, @booking, @listing)
 
-      current_user.payments.create(booking_id: @booking.id, paid: true, amount: total_price, transaction_id: @result.transaction.id)
+      current_user.payments.create(booking_id: @booking.id, paid: true, amount: total_price, transaction_id: result.transaction.id)
       redirect_to root_url, notice: "Congraulations! Your transaction has been successfully!"
     else
     	

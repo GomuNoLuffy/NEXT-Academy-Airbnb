@@ -34,11 +34,11 @@ class ListingsController < ApplicationController
 
 	def update
 		@listing.update(listing_params)
+		@listing.update(country: ISO3166::Country[params[:listing][:country_code]].name)
 		redirect_to @listing
 	end
 
 	def destroy
-		Booking.where(listing_id: @listing.id).destroy_all
 		@listing.destroy
 		redirect_to listings_path
 	end

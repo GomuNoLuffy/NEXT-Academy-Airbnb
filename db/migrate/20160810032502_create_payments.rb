@@ -5,6 +5,7 @@ class CreatePayments < ActiveRecord::Migration
     	t.belongs_to :booking
     	t.boolean :paid
     	t.integer :amount
+    	t.string :transaction_id
       t.timestamps null: false
     end
   end

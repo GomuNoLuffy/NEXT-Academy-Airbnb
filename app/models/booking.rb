@@ -3,7 +3,8 @@ class Booking < ActiveRecord::Base
 	belongs_to :listing
 	belongs_to :payments
 	validate :check_overlapping_bookings
-	validate :validate_date # prevent booking date before today
+	validate :valid_date # prevent booking date before today
+	validate :num_guests
 
 	def check_overlapping_bookings
 	
@@ -17,12 +18,19 @@ class Booking < ActiveRecord::Base
 		end
 	end
 
-	def validate_date
+	def valid_date
 		if start_date > DateTime.now and end_date > start_date
 			return
 		else
 			errors.add(:invalid_dates, "dates are invalid")
 		end
+	end
 
+	def num_guests
+		if num_guest > 0 and num_guest <= listing.max_guests
+			return
+		else
+			errors.add(:invalid_num_guest, "number of guests is out of range")
+		end
 	end
 end
