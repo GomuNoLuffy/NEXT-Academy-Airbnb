@@ -57,7 +57,7 @@ class Listing < ActiveRecord::Base
     {
       title: title,
       address: address,
-      price: price
+      country: country
     }
   end
 end

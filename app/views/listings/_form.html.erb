@@ -14,10 +14,16 @@
   <div class="field">
   	<%= f.label :Title %><br>
   	<%= f.text_field :title %><br>
+    <%= f.label :Description %><br>
+    <%= f.text_field :description %><br>
   	<%= f.label :Address %><br>
   	<%= f.text_field :address %><br>
+    <%= f.label :country_code %><br>
+    <%= f.country_select :country_code %><br>
     <%= f.label :Price %><br>
     <%= f.number_field :price %><br>
+    <%= f.label :Max_guests %><br>
+    <%= f.number_field :max_guests %><br>
     <%= f.label :Tag %><br>
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :content %><br>
     <%= f.file_field :pictures, multiple: true %><br>

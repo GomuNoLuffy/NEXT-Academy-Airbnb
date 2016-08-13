@@ -6,6 +6,7 @@
 				<th>Listing Title</th>
 				<th>Picture</th>
 				<th>Address</th>
+				<th>Country</th>
 				<th><%= filterrific_sorting_link(@filterrific, :price) %></th>
 				<th>Show</th>
 				<th>Edit</th>
@@ -19,6 +20,7 @@
 			<td><%= listing.title%></td>
 			<td><%= image_tag(listing.pictures[0].thumb) if listing.pictures? %></td>
 			<td><%= listing.address %></td>
+			<td><%= listing.country %></td>
 			<td><%= listing.price %></td>
 			<td><%= link_to 'More Info', listing %></td>
 			<% if signed_in? and current_user.id == listing.user_id %>

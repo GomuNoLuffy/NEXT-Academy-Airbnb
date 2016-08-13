@@ -39,6 +39,7 @@ class ListingsController < ApplicationController
 
 		respond_to do |format|
 			if @listing.save
+				@listing.update(country: ISO3166::Country[params[:listing][:country_code]].name)
 				format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
 			else
 				format.html { render :new }
@@ -64,7 +65,7 @@ class ListingsController < ApplicationController
 	end
 
 	def listing_params
-		params.require(:listing).permit(:title, :address, :price, :remove_pictures, tag_ids: [], pictures: [])
+		params.require(:listing).permit(:title, :address, :price, :country_code, :max_guests, :description, :remove_pictures, tag_ids: [], pictures: [])
 	end
 
 end

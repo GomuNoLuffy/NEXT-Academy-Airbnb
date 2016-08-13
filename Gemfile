@@ -6,6 +6,7 @@ gem 'figaro'
 gem 'braintree'
 gem 'gon'
 gem 'searchkick'
+gem 'country_select'
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
