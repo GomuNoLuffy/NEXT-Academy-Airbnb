@@ -14,14 +14,13 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   resources :users, only: [:show, :edit, :update, :destroy] 
-
   root 'static#index'
 
   resources :listings do
-    resources :bookings
+    resources :bookings, only: [:index, :new, :create, :destroy]
   end
 
-  resources :bookings do
+  resources :bookings, only: [:index, :new, :create, :destroy] do
      resources :payments, only: [:new, :create]
   end
  
