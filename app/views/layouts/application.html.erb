@@ -6,14 +6,17 @@
   <%= csrf_meta_tag %>
   <%= include_gon %>
   <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Staybnb</title>
+  <meta name="generator" content="Bootply" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 	<%= render "layouts/navbar" %>
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
-    <% end %>
-  </div>
+  
   <%= yield %>
 </body>
 </html>
