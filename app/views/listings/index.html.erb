@@ -1,7 +1,1 @@
-<h1>All Property Listings</h1>
-
-<% if signed_in? %>
-	<%= link_to 'Create New Listing', new_listing_path %>
-<% end %>	
-
 <%= render( partial: 'listings/list', locals: { listings: @listings } ) %>

@@ -1,34 +1,21 @@
-<div id="filterrific_results">
-	<table class="table" id="myTable">
-		<thead>
-			<tr>
-				<th>User ID</th>
-				<th>Listing Title</th>
-				<th>Picture</th>
-				<th>Address</th>
-				<th>Country</th>
-				<th>Price</th>
-				<th>Show</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% listings.each do |listing| %>
-		<tr>
-			<td><%= listing.user_id %></td>
-			<td><%= listing.title%></td>
-			<td><%= image_tag(listing.pictures[0].thumb) if listing.pictures? %></td>
-			<td><%= listing.address %></td>
-			<td><%= listing.country %></td>
-			<td><%= listing.price %></td>
-			<td><%= link_to 'More Info', listing %></td>
-			<% if signed_in? and current_user.id == listing.user_id %>
-				<td><%= link_to 'Edit', edit_listing_path(listing)%></td>
-				<td><%= link_to 'Delete', listing, method: :delete, data: {confirm: 'Are you sure?' } %></td>
-			<% end %>	
-		</tr>	
-		<% end %>
-		</tbody>
-	</table>
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8 col-md-offset-1">
+	<% listings.each do |listing| %>
+		<h4><%= link_to listing.title, listing %></h4>
+		<%=image_tag(listing.pictures[0]) if listing.pictures? %>
+		<p>City: <%= listing.address %></p>
+		<p>Country: <%= listing.country %></p>
+		<p>Daily Rate: $<%= listing.price %></p>
+		<% if signed_in? and current_user.id == listing.user_id %>
+			<button class="btn btn-default"><%= link_to 'Edit Listing', edit_listing_path(listing)%></button>
+			<button class="btn btn-default"><%= link_to 'Delete Listing', listing, method: :delete, data: {confirm: 'Are you sure?' } %></button>
+		<% end %>	
+		<hr>
+	<%end%>
 </div>
+<div class="col-md-2"></div>	
+</div>
+
+
+

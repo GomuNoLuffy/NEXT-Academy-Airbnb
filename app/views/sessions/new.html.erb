@@ -1,6 +1,14 @@
-<div id="clearance" class="sign-in">
-  <h2><%= t(".title") %></h2>
-  <%= link_to "Sign in with facebook", "/auth/facebook" %>
-  <%= render partial: '/sessions/form' %>
 
+<div id="clearance" class="sign-in">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+		  <h2 class="text-info"><%= t(".title") %></h2>
+		  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+	<hr>
+  <%= render partial: '/sessions/form' %>
 </div>
+
