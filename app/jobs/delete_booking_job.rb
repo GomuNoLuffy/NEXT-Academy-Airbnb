@@ -12,3 +12,4 @@ class DeleteBookingJob < ActiveJob::Base
     end
   end
 end
+
