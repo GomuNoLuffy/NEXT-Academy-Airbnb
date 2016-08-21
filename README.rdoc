@@ -1,28 +1,28 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Airbnb Clone using Ruby on Rails
 
-Things you may want to cover:
+The web app consist of following features and learning goals:
 
-* Ruby version
+User Authentication
+- using OmniAuth Facebook to sign in and sign up a user
+- using Clearance for authentication set up
 
-* System dependencies
+Developer Privacy Protection
+- using Figaro to prevent sensitive information such as AWS secret key being push to public repositories.
 
-* Configuration
+Image Upload
+- using Carrierwave and AWS to perform image upload for listings and profile pictures
 
-* Database creation
+Backend Jobs
+- using sidekiq and redis to perform backend job for email notification once payment on bookings was made
 
-* Database initialization
+API
+- integrating Braintree payment gateway API to faciliate payment
 
-* How to run the test suite
+Search Engine
+- using searchkick and elasticsearch to perform listing search intelligently
 
-* Services (job queues, cache servers, search engines, etc.)
+Intro to TDD and Rspec
+- set up rspec and perform test on Model, controller and View. 
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
