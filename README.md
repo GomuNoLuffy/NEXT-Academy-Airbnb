@@ -1,4 +1,4 @@
-== README
+# README
 
 ## Airbnb Clone using Ruby on Rails
 
