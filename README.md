@@ -4,7 +4,7 @@
 
 The web app consist of following features and learning goals:
 
-User Authentication
+** User Authentication **
 - using OmniAuth Facebook to sign in and sign up a user
 - using Clearance for authentication set up
 
