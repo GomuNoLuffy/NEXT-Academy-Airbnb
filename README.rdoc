@@ -1,6 +1,6 @@
 == README
 
-Airbnb Clone using Ruby on Rails
+<h3>Airbnb Clone using Ruby on Rails</h3>
 
 The web app consist of following features and learning goals:
 
