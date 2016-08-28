@@ -10,15 +10,7 @@ class Listing < ActiveRecord::Base
   mount_uploaders :pictures, ImageUploader
 
   validates :title, :address, :description, :price, :max_guests, presence: true
-  validate :positive_price_and_guests
-
-  def positive_price_and_guests
-    if price > 0 and max_guests > 0
-      return
-    else
-      errors.add(:invalid_input, "price or maximum guests must be more than 0")
-    end
-  end
+  validates :price, :max_guests, numericality: { greater_than: 0 }
 
   def search_data
     {
